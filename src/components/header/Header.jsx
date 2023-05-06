@@ -15,7 +15,7 @@ export const Header = () => {
       <header className='header'>
         <div className='scontainer flex'>
           <div className='logo'>
-            <h1 className="logo-heading">4TIFIED</h1>
+            <h1 className="logo-heading">PRESSPEE</h1>
           </div>
           <nav>
             <ul>
