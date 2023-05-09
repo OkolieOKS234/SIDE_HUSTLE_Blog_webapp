@@ -1,6 +1,5 @@
 import React from "react"
 import "./blog.css"
-import { blog } from "../../assets/data/data"
 import { AiOutlineTags, AiOutlineClockCircle, AiOutlineComment, AiOutlineShareAlt, AiOutlineAlert } from "react-icons/ai"
 import { Link } from "react-router-dom"
 
@@ -11,7 +10,7 @@ import Button from "../button/Button"
 export const Card = () => {
 //  storing the posts
  const [posts, setPosts] = useState([]);
- const [fetching, isFetching] = useState("");
+//  const [fetching, isFetching] = useState("");
 
  useEffect(() => {
   async function blogs() {
@@ -21,6 +20,7 @@ export const Card = () => {
     const data = await res.json();
     const blog = data.message.all_post;
     console.log(blog);
+    console.log(blog.blog_picture)
     setPosts(blog);
   }
   blogs();
@@ -35,7 +35,11 @@ export const Card = () => {
           {posts.map((item) => (
             <div className='box boxItems' key={item.post_id}>
               <div className='img'>
-                <img src={item.cover} alt='' />
+              <img
+                            className="w-full max-h-[400px] object-cover border-[20px] border-purple-400"
+                            src={item.blog_picture ? `https://blog.shbootcamp.com.ng/${item.blog_picture}` : "Picture"}
+                            alt=""
+                          />
               </div>
               <div className='details'>
                 <div className='tag'>
